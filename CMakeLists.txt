@@ -3,5 +3,5 @@ project(TreeMas)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp Tree.cpp Tree.h)
 add_executable(TreeMas ${SOURCE_FILES})
