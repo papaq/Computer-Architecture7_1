@@ -3,16 +3,14 @@
 //
 
 #include "Tree.h"
-#include <cstdio>
-#include <stdlib.h>
 
 Tree::Root *Tree::autoCreateTree() {
     Root *root = new Root();
 
-    int depth = 30;
+    int depth = 20;
 
     root->child = Tree::recursiveCreateChildren(depth);
-    root->val = 5200;
+    root->val = 50;
 
     return root;
 }
@@ -21,6 +19,8 @@ Tree::ChildTree *Tree::recursiveCreateChildren(int i) {
     if (i>0)
     {
         ChildTree* child = new ChildTree();
+        child->val = rand()%100;
+        int c = child->val;
         ChildTree* brother;
         int width = rand()%4+1;
 

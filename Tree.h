@@ -12,14 +12,14 @@ class Tree
 private:
     struct ChildTree
     {
-        int val = rand()%5000+5000;
+        int val = NULL;
         ChildTree* child = NULL;
         ChildTree* bro = NULL;
     };
 
     struct Root
     {
-        int val = 5200;
+        int val = 50;
         ChildTree* child = NULL;
     };
 
