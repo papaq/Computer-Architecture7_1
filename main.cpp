@@ -9,8 +9,9 @@ int main() {
     cout << "Hello, World!" << endl;
 
     Tree <int> * treeCla = new Tree<int>();
-    treeCla->setRoot();
-    //cout << "50:" << treeCla->searchIntInputNum(treeCla->root, 50);
+    //treeCla->setRoot();
+    int searchVal = 202;
+    cout << searchVal << ":" << treeCla->searchIntInputNum(treeCla->root, searchVal);
 
     return 0;
 }

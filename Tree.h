@@ -25,41 +25,65 @@ private:
 
             child->child = Tree::recursiveCreateChildren(depth-1, nextWidth);
 
-            if (width > 0)
+            if (width > 1)
             {
                 child->bro = Tree::recursiveCreateChildren(depth, width-1);
             }
 
-            std::cout << "x" << std::endl;
+            //std::cout << "x" << std::endl;
             return child;
         }
         return NULL;
     }
 
     Root<T>* autoCreateTree(void) {
-        Root<T> *root = new Root<T>(40);
+        Root<T> *root = new Root<T>(20);
 
-        int depth = 1;
+        int depth = 2;
         int nextWidth = 3;
 
         root->child = Tree::recursiveCreateChildren(depth, nextWidth);
 
         return root;
     };
-    //int recursiveSearchInChildren(ChildTree* child, int val);
+
+    int recursiveSearchInChildren(ChildTree<T>* child, T val)
+    {
+        int counter = 0;
+        if (child == NULL || val == NULL)
+            return 0;
+
+        counter += Tree::recursiveSearchInChildren(child->child, val);
+        counter += Tree::recursiveSearchInChildren(child->bro, val);
+
+        if (child->getVal() == val)
+            counter++;
+
+        return counter;
+    }
 
 public:
     Root<T>* root = NULL;
-    int a;
 
-    Tree(){};
-
-    void setRoot()
-    {
+    Tree(){
         this->root = autoCreateTree();
-    }
+    };
 
-    //int searchIntInputNum(Root* root, int val);
+    int searchIntInputNum(Root<T>* root, T val)
+    {
+        if (root == NULL || val == NULL)
+            return 0;
+
+        ChildTree<T>* tempChild = root->child;
+        int counter = 0;
+
+        if (root->getVal() == val)
+            counter++;
+
+        counter += recursiveSearchInChildren(tempChild, val);
+
+        return counter;
+    }
 };
 
 #endif //TREEMAS_TREE_H
