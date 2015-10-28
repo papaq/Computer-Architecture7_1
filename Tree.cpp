@@ -3,45 +3,58 @@
 //
 
 #include "Tree.h"
+// #include <iostream>
 
-Tree::Root *Tree::autoCreateTree() {
-    Root *root = new Root();
+/*template <typename T>
+Root<T>* Tree<T>::autoCreateTree() {
+    Root<T> *root = new Root<T>(40);
 
-    int depth = 20;
+    int depth = 5;
+    int nextWidth = 3;
 
-    root->child = Tree::recursiveCreateChildren(depth);
-    root->val = 50;
+    root->child = Tree<T>::recursiveCreateChildren(depth, nextWidth);
 
     return root;
-}
+    }
 
-Tree::ChildTree *Tree::recursiveCreateChildren(int i) {
-    if (i>0)
+template <typename  T>
+ChildTree<T>* Tree<T>::recursiveCreateChildren(int depth, int width) {
+    if (depth>0)
     {
-        ChildTree* child = new ChildTree();
-        child->val = rand()%100;
-        int c = child->val;
-        ChildTree* brother;
-        int width = rand()%4+1;
+        ChildTree<T>* child = new ChildTree<T>(20); // rand()%100
 
-        child->child = Tree::recursiveCreateChildren(i-1);
+        //int c = child->getVal();
+        //ChildTree* brother;
 
-        for (int j = 0; j < width-1; ++j) {
-            brother = new ChildTree();
-            brother->child = Tree::recursiveCreateChildren(i-1);
-            child->bro = brother;
+        int nextWidth = 3; // rand()%4+1
+
+        child->child = Tree::recursiveCreateChildren(depth-1, nextWidth);
+
+        if (width > 0)
+        {
+            child->bro = Tree::recursiveCreateChildren(depth, width-1);
         }
 
+        /*
+        for (int j = 0; j < width; ++j) {
+            brother = new ChildTree();
+            brother->child = Tree::recursiveCreateChildren(depth-1, nextWidth);
+            child->bro = brother;
+        }
+        //
+        //std::cout << "x" << std::endl;
         return child;
     }
     return NULL;
 }
+*/
 
-int Tree::searchIntInputNum(Tree::Root *root, int val) {
+/*
+int Tree::searchIntInputNum(Root *root, int val) {
     if (root == NULL || val == NULL)
         return 0;
 
-    Tree::ChildTree* tempChild = root->child;
+    ChildTree* tempChild = root->child;
     int counter = 0;
 
     if (root->val == val)
@@ -52,7 +65,7 @@ int Tree::searchIntInputNum(Tree::Root *root, int val) {
     return counter;
 }
 
-int Tree::recursiveSearchInChildren(Tree::ChildTree *child, int val) {
+int Tree::recursiveSearchInChildren(ChildTree *child, int val) {
     int counter = 0;
     if (child == NULL || val == NULL)
         return 0;
@@ -65,3 +78,4 @@ int Tree::recursiveSearchInChildren(Tree::ChildTree *child, int val) {
 
     return counter;
 }
+*/

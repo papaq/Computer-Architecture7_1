@@ -8,8 +8,9 @@ int main() {
     srand ((unsigned int) time(NULL));
     cout << "Hello, World!" << endl;
 
-    Tree* treeCla = new Tree();
-    cout << "50:" << treeCla->searchIntInputNum(treeCla->root, 50);
+    Tree <int> * treeCla = new Tree<int>();
+    treeCla->setRoot();
+    //cout << "50:" << treeCla->searchIntInputNum(treeCla->root, 50);
 
     return 0;
 }
