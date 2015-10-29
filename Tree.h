@@ -12,7 +12,7 @@
 #include "Root.h"
 
 template<typename T>
-class Tree {
+class Tree{
 private:
     Root<T> *root = NULL;
     int treepth = 2;
@@ -59,13 +59,16 @@ private:
         return counter;
     }
 
-    ChildTree<T> *goDown(Root<T> *root) {
+    template <typename G>
+    ChildTree<T> *goDown(G *root) { //Root<T>
         return root->child;
     }
 
+    /*
     ChildTree<T> *goDown(ChildTree<T> *child) {
         return child->child;
     }
+    */
 
     ChildTree<T> *goRight(ChildTree<T> *child) {
         return child->bro;
