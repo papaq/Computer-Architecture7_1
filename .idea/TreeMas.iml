@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ChildTree.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Root.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Root.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tree.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tree.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
